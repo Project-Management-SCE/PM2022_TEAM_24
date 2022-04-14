@@ -1,0 +1,34 @@
+﻿@model IdintityProject.Models.CourseModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/LayoutLoggedIn.cshtml";
+}
+
+<h3>@Html.DisplayFor(model => model.CourseName) Course Details</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
