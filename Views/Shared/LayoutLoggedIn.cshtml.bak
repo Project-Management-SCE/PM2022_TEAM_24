@@ -46,22 +46,6 @@
 
                     </li>
 
-                    <li>
-                        <a href="~/Grades/">Grades for Students</a>
-
-                    </li>
-
-                    <li>
-                        <a href="~/StudentGrades/">My Grades List</a>
-
-                    </li>
-
-
-                    <li>
-                        <a href="~/StudentCourses/">My Courses List</a>
-
-                    </li>
-
 
                 </ul>
 
