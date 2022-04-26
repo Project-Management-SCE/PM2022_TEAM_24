@@ -24,6 +24,8 @@ namespace IdintityProject.Controllers
 
         public ActionResult Index()
         {
+
+            if (User.IsInRole("Admins") || User.IsInRole("Teachers") ){ 
             var usersWithRoles = (from user in db.Users
                                   select new
                                   {
@@ -60,6 +62,11 @@ namespace IdintityProject.Controllers
 
 
             return View(usersWithRoles);
+            }
+            else
+            {
+                return View("Error");
+            }
         }
         
 
@@ -72,7 +79,7 @@ namespace IdintityProject.Controllers
                 var user = db.Users.Find(id);
                 if (user == null)
                 {
-                    return HttpNotFound();
+                    return HttpNotFound();  
                 }
 
                 return View(user);
@@ -109,7 +116,55 @@ namespace IdintityProject.Controllers
         }
 
 
+        public ActionResult Calendar()
+        {
+            if (User.IsInRole("Students"))
+            {
+                var usersWithRoles = (from user in db.Users
+                                      select new
+                                      {
+                                          UserId = user.Id,
+                                          PhoneNumber = user.PhoneNumber,
+                                          Username = user.UserName,
+                                          Email = user.Email,
+                                          Course = user.Course,
+                                          Course2 = user.Course2,
+                                          Course3 = user.Course3,
+                                          Course4 = user.Course4,
+                                          Course5 = user.Course5,
 
+
+                                          RoleNames = (from userRole in user.Roles
+                                                       join role in db.Roles on userRole.RoleId
+                                                       equals role.Id
+                                                       select role.Name).ToList()
+                                      }).ToList().Select(p => new Users_in_Role_ViewModel()
+
+                                      {
+                                          UserId = p.UserId,
+                                          Username = p.Username,
+                                          PhoneNumber = p.PhoneNumber,
+                                          Email = p.Email,
+                                          Course = p.Course,
+                                          Course2 = p.Course2,
+                                          Course3 = p.Course3,
+                                          Course4 = p.Course4,
+                                          Course5 = p.Course5,
+
+                                          Role = string.Join(",", p.RoleNames)
+                                      });
+
+
+                return View(usersWithRoles);
+            }
+
+            else
+            {
+                return View("Error");
+            }
+            
+
+        }
 
 
         // POST: Account/Edit/5
@@ -121,7 +176,19 @@ namespace IdintityProject.Controllers
                 // TODO: Add update logic here
                 if (ModelState.IsValid)
                 {
-                    db.Entry(user).State = EntityState.Modified;
+                    var existingUser = db.Users.Single(u => u.Id == user.Id);
+                    existingUser.UserName = user.UserName;
+                    existingUser.Email = user.Email;
+                    existingUser.PhoneNumber = user.PhoneNumber;
+
+
+                    existingUser.Course = user.Course;
+                    existingUser.Course2 = user.Course2;
+                    existingUser.Course3 = user.Course3;
+                    existingUser.Course4 = user.Course4;
+                    existingUser.Course5 = user.Course5;
+
+                    // etc.
                     db.SaveChanges();
                     return RedirectToAction("Index");
 
