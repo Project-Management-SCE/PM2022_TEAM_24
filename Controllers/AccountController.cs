@@ -195,11 +195,9 @@ namespace IdintityProject.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     await this.UserManager.AddToRoleAsync(user.Id, model.Roles);
 
-                    if (User.IsInRole("Admins"))
-                    {
-                        return RedirectToAction("Index", "Account");
+                   
 
-                    }
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 ViewBag.Roles = new SelectList(db.Roles.Where(a => !a.Name.Contains("Admins")), "Name", "Name");
