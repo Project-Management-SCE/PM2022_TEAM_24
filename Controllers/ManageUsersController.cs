@@ -1,4 +1,4 @@
-﻿using IdintityProject.Models;
+using IdintityProject.Models;
 using IdintityProject.ViewModels;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
