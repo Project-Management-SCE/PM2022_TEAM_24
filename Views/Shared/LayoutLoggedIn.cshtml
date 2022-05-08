@@ -23,45 +23,107 @@
         <nav id="sidebar">
             <div class="p-4 pt-5">
                 <a href="~/Dashboard/Profile" class="img logo rounded-circle mb-5" style="background-image: url(/bootstrap/adminPage/images/logo1.jpg);"></a>
+                
+				
                 <ul class="list-unstyled components mb-5">
                     <li class="active">
                     </li>
-                    <li>
-                        <a href="~/Roles/">Roles</a>
+                    @if (User.IsInRole("Admins"))
+                    {
+                        <li>
+                            <a href="~/Roles/">Roles</a>
 
-                    </li>
+                        </li>
 
-                    <li>
-                        <a href="/Account/Register/">Add New User </a>
-                    </li>
+                        <li>
+                            <a href="/Account/Register/">Add a New User </a>
+                        </li>
+                    }
+                    @if (User.IsInRole("Admins") || User.IsInRole("Teachers"))
+                    {
+                        <li>
+                            <a href="~/ManageUsers/">Students And Teachers Details</a>
 
-                    <li>
-                        <a href="~/ManageUsers/">Students And Teachers Details</a>
-
-                    </li>
-
-
-                    <li>
-                        <a href="~/Course/">Courses</a>
-
-                    </li>
-
-                    <li>
-                        <a href="~/Grades/">Grades for Students</a>
-
-                    </li>
-
-                    <li>
-                        <a href="~/StudentGrades/">My Grades List</a>
-
-                    </li>
+                        </li>
 
 
-                    <li>
-                        <a href="~/StudentCourses/">My Courses List</a>
+                        <li>
+                            <a href="~/Course/">Courses</a>
 
-                    </li>
+                        </li>
 
+
+                        <li>
+                            <a href="~/Grades/">Grades for Students</a>
+
+                        </li>
+                    }
+                    @if (User.IsInRole("Students"))
+                    {
+                        <li>
+                            <a href="~/StudentGrades/">My Grades List</a>
+
+                        </li>
+                    }
+                    @if (User.IsInRole("Students"))
+                    {
+
+                        <li>
+                            <a href="~/StudentCourses/">My Courses List</a>
+
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Students"))
+                    {
+
+                        <li>
+                            <a href="~/ManageUsers/Calendar">My Calendar </a>
+
+                        </li>
+                    }
+
+
+                    @if (User.IsInRole("Students"))
+                    {
+
+                        <li>
+                            <a href="~/StudentRequest/">Send Student Requests  </a>
+
+                        </li>
+                    }
+
+
+                    @if (User.IsInRole("Students"))
+                    {
+
+                        <li>
+                            <a href="~/StudentRequest/StudentReq/">My Requests Status  </a>
+
+                        </li>
+                    }
+
+
+
+                    @if (User.IsInRole("Admins"))
+                    {
+
+                        <li>
+                            <a href="~/StudentRequest/ApprovalRequest/">All Students Requests </a>
+
+                        </li>
+                    }
+
+
+
+                    @if (User.IsInRole("Students"))
+                    {
+
+                        <li>
+                            <a href="~/Dashboard/StudentCertificate/">My Student Permit  </a>
+
+                        </li>
+                    }
 
                 </ul>
 
