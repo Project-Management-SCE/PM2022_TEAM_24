@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IdintityProject.Models
 {
@@ -41,6 +42,13 @@ namespace IdintityProject.Models
 
 
         public DbSet<CourseModel> Course { get; set; }
+        public DbSet<GradesModel> GradesModel { get; set; }
+        public DbSet<StudentGrades> StudentGrades { get; set; }
+        public DbSet<StudentRequest> StudentRequest { get; set; }
+
+        public DbSet<HomeWorksModel> HomeWorksModel { get; set; }
+
+        public System.Data.Entity.DbSet<IdintityProject.Models.UserViewModel> UserViewModels { get; set; }
 
 
     }
