@@ -41,5 +41,15 @@ namespace IdintityProject.Controllers
             return View();
         }
 
+         public ActionResult StudentCertificate()
+        {
+            var user = User.Identity.GetUserName();
+
+            return View();
+        }
+
+
+
+
     }
 }
