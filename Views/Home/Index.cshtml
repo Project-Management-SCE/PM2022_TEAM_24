@@ -1,4 +1,9 @@
-﻿@{
+@model IdintityProject.Models.UserRequestsModel
+
+@{
+=======
+@{
+ main
     ViewBag.Title = "Home Page";
 }
 
@@ -37,6 +42,24 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/ContactStyles/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/ContactStyles/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/ContactStyles/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/ContactStyles/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/ContactStyles/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/ContactStyles/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/ContactStyles/css/main.css">
+    <!--===============================================================================================-->
+
+
 </head>
 <body class="main-layout">
 
@@ -61,8 +84,12 @@
                         <div class="col-md-12">
                             <div class="business_box ">
                                 <figure><img src="~/bootstrap/dashboardPage/images/business_img.jpg" alt="#" /></figure>
+
+                                <p>The College offers undergraduate studies in Architecture, Visual Communication, Computer Science, Software Engineering, Electrical and Electronics Engineering, Chemical Engineering, Building Engineering, Mechanical Engineering and Industrial Engineering and Management; As well as a variety of advanced engineering studies for a master’s degree</p>
+                                <a class="read_more" href="#contact1">Request Registering</a>
+
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believableThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                                <a class="read_more" href="#">Read more</a>
+
                             </div>
                         </div>
                     </div>
@@ -70,6 +97,73 @@
             </div>
         </div>
         <!-- end business -->
+
+
+        <br />
+        <br />
+        <div class="contact1" id="contact1">
+            <div class="container-contact1">
+                <div class="contact1-pic js-tilt" data-tilt>
+                    <img src="~/ContactStyles/images/img-01.png" alt="IMG">
+                </div>
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "contact1-form validate-form " }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <span class="contact1-form-title" style="margin-right:100px;">
+                        Get in touch
+                    </span>
+
+
+
+                    <label>Full Name</label>
+
+                    <div class="wrap-input1 validate-input" data-validate="Name is required">
+
+                        @Html.TextBoxFor(m => m.FullNameRequests, new { @placeholder = "Full Name..", @class = "input1" })
+
+                        <span class="shadow-input1"></span>
+                    </div>
+
+                    <label>Email Address</label>
+
+                    <div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+
+                        @Html.TextBoxFor(m => m.EmailRequests, new { @placeholder = "Email..", @class = "input1" })
+
+                        <span class="shadow-input1"></span>
+                    </div>
+
+                    <label>Phone number</label>
+
+                    <div class="wrap-input1 validate-input" data-validate="Subject is required">
+
+                        @Html.TextBoxFor(m => m.PhoneNumberRequests, new { @placeholder = "Phone number..", @class = "input1" })
+
+                        <span class="shadow-input1"></span>
+                    </div>
+
+                    <br />
+                    <div class="container-contact1-form-btn">
+
+                        <input type="submit" value="Send request" class="contact1-form-btn" style="margin-right:100px;">
+
+                    </div>
+                }
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -89,6 +183,11 @@
                                             <strong class="d-inline-block mb-2 text-primary">World</strong>
                                             <h3 class="mb-0">Featured post</h3>
                                             <div class="mb-1 text-muted">Nov 12</div>
+                                            <p class="card-text mb-auto">
+                                                "A challenging learning experience and at a very professional level that contributed to my integration into the industry.
+
+                                                The level of courses and lecturers was very high, which contributed to us integrating into the strong current industry and the tension was high. "
+                                            </p>
                                             <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
                                             <a href="#" class="stretched-link">Continue reading</a>
                                         </div>
@@ -106,6 +205,11 @@
                                             <strong class="d-inline-block mb-2 text-success">Design</strong>
                                             <h3 class="mb-0">Post title</h3>
                                             <div class="mb-1 text-muted">Nov 11</div>
+                                            <p class="mb-auto">
+                                                “I enrolled in the SCE following excellent recommendations and opinions about the college, the level of teaching, a broad academic envelope and the personal attitude towards the students.
+
+
+                                            </p>
                                             <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
                                             <a href="#" class="stretched-link">Continue reading</a>
                                         </div>
@@ -137,21 +241,28 @@
 
                                 <div class="col-lg-3 col-6 text-center">
                                     <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
+
+                                    <p>Students 7658</p>
                                     <p>Students</p>
                                 </div>
 
                                 <div class="col-lg-3 col-6 text-center">
                                     <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
+                                    <p>Courses 221</p>
+
                                     <p>Courses</p>
                                 </div>
 
                                 <div class="col-lg-3 col-6 text-center">
                                     <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1" class="purecounter"></span>
+                                    <p>Events 46</p>
+
                                     <p>Events</p>
                                 </div>
 
                                 <div class="col-lg-3 col-6 text-center">
                                     <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+                                    <p>Trainers 679</p>
                                     <p>Trainers</p>
                                 </div>
 
@@ -164,6 +275,12 @@
             </div>
         </div>
 
+
+        <br /><br />
+              <div style="width: 100%;"><strong><a href="https://in.bgu.ac.il/protect/Pages/faq.aspx" style="font-size: 20px;  border-style: solid; ">Every Thing About - Preventing Sexual Harassment.</a></strong></div>
+
+
+ 
     </div>
 
     <!-- Page Content end  -->
@@ -185,36 +302,39 @@
     <script src="~/bootstrap/dashboardPage/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="~/bootstrap/dashboardPage/js/custom.js"></script>
     <script src="~/bootstrap/dashboardPage/https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="~/ContactStyles/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/ContactStyles/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/ContactStyles/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/ContactStyles/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/ContactStyles/vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+    <!--===============================================================================================-->
+    <script src="~/ContactStyles/js/main.js"></script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

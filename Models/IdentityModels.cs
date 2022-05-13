@@ -48,6 +48,9 @@ namespace IdintityProject.Models
 
         public DbSet<HomeWorksModel> HomeWorksModel { get; set; }
 
+        public DbSet<UserRequestsModel> UserRequestsModel { get; set; }
+
+
         public System.Data.Entity.DbSet<IdintityProject.Models.UserViewModel> UserViewModels { get; set; }
 
 
