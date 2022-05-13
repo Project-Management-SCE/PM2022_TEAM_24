@@ -138,6 +138,18 @@
                         </li>
                     }
 
+
+
+                    @if (User.IsInRole("Admins"))
+                    {
+
+                        <li>
+                            <a href="~/Dashboard/RequestsForUsers/">Users Registration Requests </a>
+
+                        </li>
+                    }
+
+
                 </ul>
 
 
