@@ -41,15 +41,56 @@ namespace IdintityProject.Controllers
             return View();
         }
 
-         public ActionResult StudentCertificate()
+        public ActionResult StudentCertificate()
         {
             var user = User.Identity.GetUserName();
 
             return View();
         }
 
+        public ActionResult RequestsForUsers()
+        {
+            return View(db.UserRequestsModel.ToList());
+
+        }
+
+        // GET: HomeWorks/Delete/5
+        public ActionResult Delete(int id)
+        {
+            
+                var req = db.UserRequestsModel.Find(id);
+                if (req == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(req);
 
 
+
+           
+
+        }
+
+        // POST: HomeWorks/Delete/5
+        [HttpPost]
+        public ActionResult Delete(UserRequestsModel usersReq)
+        {
+
+        
+            
+                // TODO: Add delete logic here
+                UserRequestsModel Homee = db.UserRequestsModel.Find(usersReq.Id);
+                db.UserRequestsModel.Remove(Homee);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            
+            
+            
+
+
+        }
 
     }
 }
