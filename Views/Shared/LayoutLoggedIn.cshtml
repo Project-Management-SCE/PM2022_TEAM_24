@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity
 
 @{
     Layout = null;
@@ -145,6 +145,18 @@
 
                         <li>
                             <a href="~/Dashboard/RequestsForUsers/">Users Registration Requests </a>
+
+                        </li>
+                    }
+
+
+
+
+                    @if (User.IsInRole("Students"))
+                    {
+
+                        <li>
+                            <a href="~/StudentCourses/Exams">Exams List </a>
 
                         </li>
                     }

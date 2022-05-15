@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/LayoutLoggedIn.cshtml";
 }
 
-<h3>@Html.DisplayFor(model => model.CourseName) Course Details</h3>
+<h3>Details</h3>
 
 <div>
     <hr />
@@ -24,6 +24,38 @@
 
         <dd>
             @Html.DisplayFor(model => model.CourseDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacher_Course)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teacher_Course)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseExam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseExam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exam_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exam_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exam_Moed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exam_Moed)
         </dd>
 
     </dl>
