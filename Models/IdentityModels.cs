@@ -50,6 +50,7 @@ namespace IdintityProject.Models
 
         public DbSet<UserRequestsModel> UserRequestsModel { get; set; }
 
+        public DbSet<Exam> Exam { get; set; }
 
         public System.Data.Entity.DbSet<IdintityProject.Models.UserViewModel> UserViewModels { get; set; }
 
