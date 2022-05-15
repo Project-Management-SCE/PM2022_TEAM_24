@@ -5,8 +5,9 @@
     Layout = "~/Views/Shared/LayoutLoggedIn.cshtml";
 }
 
-<h3>Delete @Html.DisplayFor(model => model.CourseName) Course</h3>
+<h3>Delete A Course</h3>
 
+<h5>Are you sure you want to delete this?</h5>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -26,13 +27,45 @@
             @Html.DisplayFor(model => model.CourseDescription)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacher_Course)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teacher_Course)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseExam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseExam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exam_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exam_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exam_Moed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exam_Moed)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-primary" /> |
+            <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }

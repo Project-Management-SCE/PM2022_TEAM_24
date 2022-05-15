@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/LayoutLoggedIn.cshtml";
 }
 
-<h3>Courses List</h3>
+<h2>Courses</h2>
 
 <p>
-    @Html.ActionLink("Add a new course ", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -17,6 +17,18 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CourseDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teacher_Course)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseExam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exam_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exam_Moed)
         </th>
         <th></th>
     </tr>
@@ -28,6 +40,18 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CourseDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher_Course)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseExam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exam_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exam_Moed)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
