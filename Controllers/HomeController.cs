@@ -64,5 +64,18 @@ namespace IdintityProject.Controllers
 
             return View("UserRequest");
         }
+
+        public ActionResult Policy()
+        {
+
+
+            return View();
+        }
+
+
+
+     
+
+
     }
 }
