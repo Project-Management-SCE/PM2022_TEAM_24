@@ -33,7 +33,7 @@ namespace IdintityProject.Controllers
         // GET: Course/Details/5
         public ActionResult Details(int id)
         {
-            if (User.IsInRole("Admins"))
+            if (User.IsInRole("Admins") || User.IsInRole("Teachers"))
             {
                 var course = db.Course.Find(id);
                 if (course == null)
@@ -54,7 +54,7 @@ namespace IdintityProject.Controllers
         // GET: Course/Edit/5
         public ActionResult Edit(int id)
         {
-            if (User.IsInRole("Admins"))
+            if (User.IsInRole("Admins") || User.IsInRole("Teachers"))
             {
                 var course = db.Course.Find(id);
                 if (course == null)
@@ -75,9 +75,9 @@ namespace IdintityProject.Controllers
 
         // POST: Roles/Edit/5
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "Id,CourseName,CourseDescription")] CourseModel course)
+        public ActionResult Edit([Bind(Include = "Id,CourseName,CourseDescription,Teacher_Course,CourseExam,Exam_Date,Exam_Moed,Course_Price")] CourseModel course)
         {
-            if (User.IsInRole("Admins"))
+            if (User.IsInRole("Admins") || User.IsInRole("Teachers"))
             {
 
                 // TODO: Add update logic here
@@ -103,8 +103,13 @@ namespace IdintityProject.Controllers
         // GET: Roles/Create
         public ActionResult Create()
         {
-            if (User.IsInRole("Admins"))
+            if (User.IsInRole("Admins") || User.IsInRole("Teachers"))
             {
+
+                var list = db.Users.Select(m => m.UserName).ToList();
+                ViewBag.list = list;
+
+
                 return View();
             }
             else
@@ -119,7 +124,7 @@ namespace IdintityProject.Controllers
         [HttpPost]
         public ActionResult Create(CourseModel course)
         {
-            if (User.IsInRole("Admins"))
+            if (User.IsInRole("Admins") || User.IsInRole("Teachers"))
             {
                 try
                 {
@@ -154,7 +159,7 @@ namespace IdintityProject.Controllers
         // GET: Course/Delete/5
         public ActionResult Delete(int id)
         {
-            if (User.IsInRole("Admins"))
+            if (User.IsInRole("Admins") || User.IsInRole("Teachers"))
             {
                 var course = db.Course.Find(id);
                 if (course == null)
@@ -175,7 +180,7 @@ namespace IdintityProject.Controllers
         [HttpPost]
         public ActionResult Delete( CourseModel course)
         {
-            if (User.IsInRole("Admins"))
+            if (User.IsInRole("Admins") || User.IsInRole("Teachers"))
             {
 
                 // TODO: Add delete logic here
@@ -192,5 +197,23 @@ namespace IdintityProject.Controllers
 
             }
         }
+
+
+
+
+        public ActionResult Prices()
+        {
+
+
+
+            return View(db.Course.ToList());
+
+
+        }
+
+
+
+
+
     }
 }
